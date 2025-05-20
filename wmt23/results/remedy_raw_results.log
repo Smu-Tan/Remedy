@@ -1,0 +1,16 @@
+
+MQM Result:
+                   avg   sys  seg-avg  en-de  he-en  zh-en
+System                                                    
+GEMBA-MQM[noref] 74.86 94.51    55.21  57.21  56.26  52.16
+XCOMET-Ensemble  75.27 92.83    57.71  60.40  58.45  54.27
+MetricX-23       73.81 90.72    56.91  60.26  57.37  53.09
+REMEDY-9b        75.84 94.51    57.17  59.53  57.63  54.36
+
+DA Result:
+                   avg   sys  seg-avg  cs-uk  de-en  en-cs  en-de  en-ja  en-zh  ja-en  zh-en
+System                                                                                       
+GEMBA-MQM[noref] 65.82 89.91    41.74  32.29  42.59  32.69  57.21  38.95  38.48  39.53  52.16
+XCOMET-Ensemble  72.13 87.01    57.24  55.99  57.34  54.32  60.40  58.63  59.61  57.39  54.27
+MetricX-23       71.72 86.25    57.18  56.68  58.39  55.04  60.26  58.02  58.79  57.18  53.09
+REMEDY-9b        74.28 90.92    57.64  56.34  58.92  53.60  59.59  59.37  60.22  58.68  54.39
