@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/dcc72523-c91c-4712-9478-28850e1151c6" alt="ReMedy Logo" width="440"/>
 </p>
-<h1 align="center">🚀ReMedy: Machine Translation Evaluation via Reward Modeling</h1>
+<h1 align="left">🚀ReMedy: Machine Translation Evaluation via Reward Modeling</h1>
 <p align="center"><b>Learning High-Quality Machine Translation Evaluation from Human Preferences with Reward Modeling</b></p>
 
 <p align="center">
