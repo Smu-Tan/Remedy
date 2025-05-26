@@ -44,11 +44,12 @@
 
 ## 📦 Quick Installation
 
-> ReMedy requires **Python ≥ 3.10**, and leverages **[VLLM](https://github.com/vllm-project/vllm)** for fast inference.
+> ReMedy requires **Python ≥ 3.12**, and leverages **[VLLM](https://github.com/vllm-project/vllm)** for fast inference.
 
 ### ✅ Recommended: Install via pip
 
 ```bash
+pip install --upgrade pip
 pip install remedy-mt-eval
 ```
 
@@ -72,7 +73,7 @@ poetry install
 
 ## ⚙️ Requirements
 
-- `Python` ≥ 3.10  
+- `Python` ≥ 3.12  
 - `transformers` ≥ 4.51.1  
 - `vllm` ≥ 0.8.5  
 - `torch` ≥ 2.6.0  
@@ -84,10 +85,10 @@ poetry install
 
 ### 💾 Download ReMedy Models
 
-Before using, download the model from HuggingFace:
+Before using, you can download the model from HuggingFace:
 
 ```bash
-HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download ShaomuTan/ReMedy-9B-23 --local-dir Models/remedy-9B-23
+HF_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download ShaomuTan/ReMedy-9B-22 --local-dir Models/ReMedy-9B-22
 ```
 
 You can replace `ReMedy-9B-22` with other variants like `ReMedy-9B-23`.
@@ -98,12 +99,12 @@ You can replace `ReMedy-9B-22` with other variants like `ReMedy-9B-23`.
 
 ```bash
 remedy-score \
-    --model Models/remedy-9B-22 \
+    --model ShaomuTan/ReMedy-9B-22 \
     --src_file testcase/en.src \
     --mt_file testcase/en-de.hyp \
     --ref_file testcase/de.ref \
     --src_lang en --tgt_lang de \
-    --cache_dir $CACHE_DIR \
+    --cache_dir Models \
     --save_dir testcase \
     --num_gpus 4 \
     --calibrate
@@ -113,13 +114,13 @@ remedy-score \
 
 ```bash
 remedy-score \
-    --model Models/remedy-9B-22 \
+    --model ShaomuTan/ReMedy-9B-22 \
     --src_file testcase/en.src \
     --mt_file testcase/en-de.hyp \
     --no_ref \
     --src_lang en --tgt_lang de \
-    --cache_dir $CACHE_DIR \
-    --save_dir testcase \
+    --cache_dir Models \
+    --save_dir testcase/QE \
     --num_gpus 4 \
     --calibrate
 ```
@@ -229,26 +230,29 @@ Inspired by **SacreBLEU**, ReMedy provides JSON-style results to ensure transpar
 <details>
 <summary>Click to show instructions for reproducing WMT22–24 evaluation</summary>
 
-### 1. Install `mt-metrics-eval`
+### 1. Clone ReMedy repo
+```bash
+git clone https://github.com/Smu-Tan/Remedy
+cd Remedy
+```
+
+### 2. Install `mt-metrics-eval`
 
 ```bash
+# Install MTME and download WMT data
 git clone https://github.com/google-research/mt-metrics-eval.git
 cd mt-metrics-eval
 pip install .
-```
-
-### 2. Download WMT evaluation data
-
-```bash
+cd ..
 python3 -m mt_metrics_eval.mtme --download
 ```
 
 ### 3. Run ReMedy on WMT data
 
 ```bash
-bash wmt/wmt22.sh
-bash wmt/wmt23.sh
-bash wmt/wmt24.sh
+sbatch wmt/wmt22.sh
+sbatch wmt/wmt23.sh
+sbatch wmt/wmt24.sh
 ```
 
 > 📄 Results will be comparable with other metrics reported in WMT shared tasks.

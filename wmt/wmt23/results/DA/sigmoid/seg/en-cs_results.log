@@ -1,0 +1,26 @@
+test_set=wmt23 lang=en-cs domain=None level=seg human=False avg_by=item corr_fcn=KendallWithTiesOpt k=0 gold=da-sqm refs={'refA'} close_refs=set() use_outliers=False primary=True pval=0.05 block_size=1000 early_min=0.02 early_max=0.5 replace_nans_with_zeros=False perm_test=pairs corr_fcn_args={'sample_rate':1.0,'variant':'acc23'}
+MetricX-23                 1  0.5503860  . > > > > > > > > > > > > > > > > > > > > > > > >
+MetricX-23-QE[noref]       2  0.5489201  . . > > > > > > > > > > > > > > > > > > > > > > >
+XCOMET-Ensemble            3  0.5431867  . . . > > > > > > > > > > > > > > > > > > > > > >
+REMEDY-9b-sigmoid          4  0.5360482  . . . . > > > > > > > > > > > > > > > > > > > > >
+XCOMET-QE-Ensemble[noref]  5  0.5277821  . . . . . > > > > > > > > > > > > > > > > > > > >
+COMET                      6  0.5243733  . . . . . . > > > > > > > > > > > > > > > > > > >
+CometKiwi[noref]           7  0.5176772  . . . . . . . > > > > > > > > > > > > > > > > > >
+BLEURT-20                  8  0.5101830  . . . . . . . . > > > > > > > > > > > > > > > > >
+KG-BERTScore[noref]        9  0.5072513  . . . . . . . . . > > > > > > > > > > > > > > > >
+cometoid22-wmt22[noref]   10  0.5060977  . . . . . . . . . . > > > > > > > > > > > > > > >
+mre-score-labse-regular   11  0.5037297  . . . . . . . . . . . > > > > > > > > > > > > > >
+XLsim                     12  0.5025241  . . . . . . . . . . . . > > > > > > > > > > > > >
+MS-COMET-QE-22[noref]     13  0.4973111  . . . . . . . . . . . . . > > > > > > > > > > > >
+prismRef                  14  0.4951774  . . . . . . . . . . . . . . > > > > > > > > > > >
+BERTscore                 15  0.4931217  . . . . . . . . . . . . . . . > > > > > > > > > >
+YiSi-1                    16  0.4919854  . . . . . . . . . . . . . . . . > > > > > > > > >
+eBLEU                     17  0.4827999  . . . . . . . . . . . . . . . . . > > > > > > > >
+tokengram_F               18  0.4809611  . . . . . . . . . . . . . . . . . . > > > > > > >
+chrF                      19  0.4798682  . . . . . . . . . . . . . . . . . . . > > > > > >
+embed_llama               20  0.4760951  . . . . . . . . . . . . . . . . . . . . > > > > >
+f200spBLEU                21  0.4752711  . . . . . . . . . . . . . . . . . . . . . > > > >
+BLEU                      22  0.4597450  . . . . . . . . . . . . . . . . . . . . . . > > >
+prismSrc[noref]           23  0.4562408  . . . . . . . . . . . . . . . . . . . . . . . > >
+Random-sysname[noref]     24  0.4521034  . . . . . . . . . . . . . . . . . . . . . . . . >
+GEMBA-MQM[noref]          25  0.3268540  . . . . . . . . . . . . . . . . . . . . . . . . . 

@@ -1,97 +1,22 @@
-#import sys
-#sys.path.insert(1, '/ivi/ilps/datasets/shaomu/Remet/remedy/toolbox')
-
 import os
+import torch
 import argparse
 import numpy as np
-from datasets import load_from_disk, Dataset
-from transformers import AutoTokenizer, PreTrainedTokenizerBase
-from vllm import ModelRegistry, LLM
-from toolbox.gemma2_remedy import Gemma2ForSequenceClassification
-#from accelerate import PartialState
-from trl.data_utils import maybe_apply_chat_template
 import pandas as pd
-from mt_metrics_eval import data as mtme
-from typing import Any, Dict, List, Set, Tuple
+from vllm import ModelRegistry, LLM
 from mt_metrics_eval import meta_info
-import torch
+from mt_metrics_eval import data as mtme
+from datasets import load_from_disk, Dataset
+from typing import Any, Dict, List, Set, Tuple
+from trl.data_utils import maybe_apply_chat_template
+from transformers import AutoTokenizer, PreTrainedTokenizerBase
+from remedy.toolbox.languages import LANG_MAP, get_full_lang_name
+from remedy.toolbox.gemma2_remedy import Gemma2ForSequenceClassification
+from remedy.toolbox.score import _tokenize, prepare_dataset, initialize_model
 
 # Register the model
 ModelRegistry.register_model("Gemma2ForSequenceClassification", Gemma2ForSequenceClassification)
 
-# Language mapping dictionary
-LANG_MAP = {
-    'en': 'English', 'zh': 'Chinese', 'fr': 'French', 'de': 'German',
-    'es': 'Spanish', 'ru': 'Russian', 'ar': 'Arabic', 'ko': 'Korean',
-    'ja': 'Japanese', 'cs': 'Czech', 'lv': 'Latvian', 'fi': 'Finnish',
-    'tr': 'Turkish', 'et': 'Estonian', 'lt': 'Lithuanian', 'kk': 'Kazakh',
-    'pl': 'Polish', 'ta': 'Tamil', 'bn': 'Bengali', 'hi': 'Hindi',
-    'mr': 'Marathi', 'ne': 'Nepali', 'ro': 'Romanian', 'si': 'Sinhala',
-    'uk': 'Ukrainian', 'hr': 'croatian', 'liv': 'Livonian', 'sah': 'Yakut',
-    'he': 'hebrew', 'gu': 'Gujarati', 'km': 'Khmer', 'ps': 'Pushto',
-    'ha': 'Hausa', 'is': 'Icelandic', 'xh': 'Xhosa', 'zu': 'Zulu'
-}
-
-def get_full_lang_name(abbr):
-    """Convert language abbreviation to full name."""
-    return LANG_MAP.get(abbr, abbr)
-
-def _tokenize(batch: Dict[str, List[Any]], tokenizer: PreTrainedTokenizerBase, max_length=None) -> Dict[str, List[Any]]:
-    """Tokenize a batch of data."""
-    new_examples = {
-        "input_ids_chosen": [],
-        "attention_mask_chosen": [],
-    }
-    for chosen in batch["chosen"]:
-        if max_length:
-            tokenized_chosen = tokenizer(chosen, max_length=max_length, truncation=True)
-        else:
-            tokenized_chosen = tokenizer(chosen)
-        new_examples["input_ids_chosen"].append(tokenized_chosen["input_ids"])
-        new_examples["attention_mask_chosen"].append(tokenized_chosen["attention_mask"])
-    return new_examples
-
-def prepare_dataset(test_dataset, tokenizer, max_length, enable_truncate=True):
-    """Prepare dataset for model inference."""
-    if "input_ids_chosen" not in test_dataset.column_names:
-        #with PartialState().local_main_process_first():
-        test_dataset = test_dataset.map(
-            maybe_apply_chat_template, 
-            fn_kwargs={"tokenizer": tokenizer}
-        )
-        
-        fn_kwargs = {
-            "tokenizer": tokenizer,
-            'max_length': max_length
-        } if enable_truncate else {"tokenizer": tokenizer}
-            
-        test_dataset = test_dataset.map(
-            _tokenize,
-            fn_kwargs=fn_kwargs,
-            batched=True,
-            num_proc=20,
-        )
-    return test_dataset
-
-def initialize_model(model_path, max_length, enable_truncate=True, num_gpus=1, num_seqs=256):
-    """Initialize the LLM model for inference."""
-    num_seqs = num_seqs
-    model_kwargs = {
-        "model": model_path,
-        "tensor_parallel_size": num_gpus,
-        "gpu_memory_utilization": 0.99,
-        "dtype": "bfloat16",
-        "task": 'embedding',
-        "enforce_eager": False,
-        "disable_log_stats": True,
-        "device": 'cuda',
-        "max_num_seqs": num_seqs,
-        "enable_prefix_caching": True,
-        "enable_chunked_prefill": False
-    }
-    if enable_truncate:
-        model_kwargs["max_model_len"] = max_length
-    return LLM(**model_kwargs)
 
 def collect_language_pairs(year: str) -> Tuple[Set[str], Set[str]]:
     """Collect MQM and DA language pairs from metadata."""

@@ -1,0 +1,23 @@
+test_set=wmt22 lang=en-de,zh-en,en-ru domain=None level=sys human=False avg_by=none corr_fcn=accuracy k=1000 gold=['mqm','mqm','mqm'] refs=[{'refA'},{'refA'},{'refA'}] close_refs=[set(),set(),set()] use_outliers=False primary=True pval=0.05 block_size=5 early_min=0.02 early_max=0.5 replace_nans_with_zeros=False perm_test=scores corr_fcn_args={}
+REMEDY-9b                              1  0.9124088  . = > = = > > > > > > > > > > > > > > > > >
+metricx_xxl_MQM_2020                   1  0.8503650  . . = = = = = = > > = > = > > > > > > > > >
+BLEURT-20                              2  0.8467153  . . . = = > = > > = > > = = = = > > > > > >
+COMET-22                               2  0.8394161  . . . . = = = = > > = = = = = > > = > > > >
+COMET-20                               2  0.8357664  . . . . . = = = = > > = = > = > = = > > > >
+MS-COMET-22                            3  0.8284672  . . . . . . = = > > = > = = = > = > > > > >
+UniTE                                  3  0.8284672  . . . . . . . = = > = > = = = = > > > > > >
+MATESE                                 3  0.8102190  . . . . . . . . = = = = = = = = > = = > > >
+YiSi-1                                 4  0.7919708  . . . . . . . . . = = = = = = = = > = = > >
+COMETKiwi[noref]                       4  0.7883212  . . . . . . . . . . = = = = = = = > = = > >
+MEE4                                   4  0.7883212  . . . . . . . . . . . = = = = > = > > > > >
+COMET-QE[noref]                        4  0.7810219  . . . . . . . . . . . . = = = = = = = = > >
+BERTScore                              4  0.7737226  . . . . . . . . . . . . . = = = = = = > > >
+HuaweiTSC_EE_BERTScore_0.3_With_Human  4  0.7591241  . . . . . . . . . . . . . . = = = = = = = >
+UniTE-src[noref]                       4  0.7591241  . . . . . . . . . . . . . . . = = = > > = >
+MS-COMET-QE-22[noref]                  5  0.7554745  . . . . . . . . . . . . . . . . = = = = = >
+MATESE-QE[noref]                       5  0.7481752  . . . . . . . . . . . . . . . . . = = = > >
+f200spBLEU                             5  0.7408759  . . . . . . . . . . . . . . . . . . = = = >
+chrF                                   5  0.7335766  . . . . . . . . . . . . . . . . . . . = = >
+BLEU                                   5  0.7080292  . . . . . . . . . . . . . . . . . . . . = >
+HWTSC-Teacher-Sim[noref]               6  0.6861314  . . . . . . . . . . . . . . . . . . . . . >
+REUSE[noref]                           7  0.3467153  . . . . . . . . . . . . . . . . . . . . . . 

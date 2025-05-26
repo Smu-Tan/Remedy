@@ -109,7 +109,6 @@ def final_optimized_entropy(scores, force_normal_dist=False, force_high_reward_d
     return best_temp
 
 
-
 def collect_all_scores(raw_score_dir, save_plot=False, plot_dir=None):
     all_scores = []
     lp_scores = defaultdict(list)

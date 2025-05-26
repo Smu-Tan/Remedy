@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "remedy-mt-eval"
-version = "0.1.0"
+version = "0.1.2"
 description = "High-quality Machine Translation Evaluation Tool"
 authors = ["Shaomu Tan"]
 license = "MIT"

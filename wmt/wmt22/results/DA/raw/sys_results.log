@@ -1,0 +1,20 @@
+test_set=wmt22 lang=cs-uk,en-cs,en-de,en-hr,en-ja,en-liv,en-ru,en-uk,en-zh,liv-en,sah-ru,uk-cs,zh-en domain=None level=sys human=False avg_by=none corr_fcn=accuracy k=1000 gold=['wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise','wmt-appraise'] refs=[{'refA'},{'refB'},{'refA'},{'refA'},{'refA'},{'refA'},{'refA'},{'refA'},{'refA'},{'refA'},{'refA'},{'refA'},{'refA'}] close_refs=[set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set(),set()] use_outliers=False primary=True pval=0.05 block_size=5 early_min=0.02 early_max=0.5 replace_nans_with_zeros=False perm_test=scores corr_fcn_args={}
+REMEDY-9b                              1  0.8674464  . = = > = = = = = > = = > = = > > > >
+UniTE                                  1  0.8654971  . . = = = = = = = > > > = > > > > > >
+metricx_xxl_MQM_2020                   1  0.8654971  . . . = = = = = = = > = = > > > > > >
+COMET-22                               2  0.8576998  . . . . = = > = = > > = = > > > > > >
+COMET-20                               2  0.8557505  . . . . . = = = = = = = > > = = > > >
+MS-COMET-22                            2  0.8557505  . . . . . . = = = = = = = = = = > > >
+COMETKiwi[noref]                       3  0.8538012  . . . . . . . = = > = > = > = > > > >
+BLEURT-20                              3  0.8518519  . . . . . . . . = = = = = = = = > > >
+MS-COMET-QE-22[noref]                  3  0.8362573  . . . . . . . . . = = = = = > = > > >
+YiSi-1                                 4  0.8265107  . . . . . . . . . . = = > = = > = > >
+COMET-QE[noref]                        4  0.8167641  . . . . . . . . . . . = = = = = > > >
+UniTE-src[noref]                       4  0.8128655  . . . . . . . . . . . . = = = = > = >
+chrF                                   5  0.8128655  . . . . . . . . . . . . . = = = > = >
+BERTScore                              5  0.8050682  . . . . . . . . . . . . . . > = > = >
+HuaweiTSC_EE_BERTScore_0.3_With_Human  6  0.7972710  . . . . . . . . . . . . . . . = > > >
+f200spBLEU                             6  0.7894737  . . . . . . . . . . . . . . . . = > >
+BLEU                                   7  0.7465887  . . . . . . . . . . . . . . . . . = >
+HWTSC-Teacher-Sim[noref]               7  0.7309942  . . . . . . . . . . . . . . . . . . >
+REUSE[noref]                           8  0.3606238  . . . . . . . . . . . . . . . . . . . 
