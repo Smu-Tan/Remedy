@@ -1,0 +1,23 @@
+test_set=wmt22 lang=en-de domain=None level=seg human=False avg_by=item corr_fcn=KendallWithTiesOpt k=0 gold=wmt-appraise refs={'refA'} close_refs=set() use_outliers=False primary=True pval=0.05 block_size=1000 early_min=0.02 early_max=0.5 replace_nans_with_zeros=False perm_test=pairs corr_fcn_args={'sample_rate':1.0,'variant':'acc23'}
+metricx_xxl_MQM_2020      1  0.4602231  . > > > > > > > > > > > > > > > > > > > > >
+COMET-22                  2  0.4590619  . . > > > > > > > > > > > > > > > > > > > >
+COMET-20                  3  0.4521403  . . . > > > > > > > > > > > > > > > > > > >
+COMETKiwi[noref]          4  0.4494991  . . . . > > > > > > > > > > > > > > > > > >
+SEScore                   5  0.4480647  . . . . . > > > > > > > > > > > > > > > > >
+REMEDY-9b                 6  0.4475865  . . . . . . > > > > > > > > > > > > > > > >
+MS-COMET-QE-22[noref]     7  0.4462659  . . . . . . . > > > > > > > > > > > > > > >
+MS-COMET-22               8  0.4459927  . . . . . . . . > > > > > > > > > > > > > >
+COMET-QE[noref]           9  0.4422587  . . . . . . . . . > > > > > > > > > > > > >
+BERTScore                10  0.4317395  . . . . . . . . . . > > > > > > > > > > > >
+UniTE                    11  0.4228825  . . . . . . . . . . . > > > > > > > > > > >
+BLEURT-20                12  0.4203780  . . . . . . . . . . . . > > > > > > > > > >
+HWTSC-Teacher-Sim[noref] 13  0.4169627  . . . . . . . . . . . . . > > > > > > > > >
+UniTE-src[noref]         14  0.4161885  . . . . . . . . . . . . . . > > > > > > > >
+MEE4                     15  0.4121585  . . . . . . . . . . . . . . . > > > > > > >
+YiSi-1                   16  0.4087887  . . . . . . . . . . . . . . . . > > > > > >
+chrF                     17  0.4056239  . . . . . . . . . . . . . . . . . > > > > >
+f200spBLEU               18  0.3997495  . . . . . . . . . . . . . . . . . . > > > >
+BLEU                     19  0.3849954  . . . . . . . . . . . . . . . . . . . > > >
+REUSE[noref]             20  0.3787568  . . . . . . . . . . . . . . . . . . . . > >
+MATESE                   21  0.2630237  . . . . . . . . . . . . . . . . . . . . . >
+MATESE-QE[noref]         22  0.2359745  . . . . . . . . . . . . . . . . . . . . . . 

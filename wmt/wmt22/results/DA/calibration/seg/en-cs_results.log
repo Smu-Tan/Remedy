@@ -1,0 +1,19 @@
+test_set=wmt22 lang=en-cs domain=None level=seg human=False avg_by=item corr_fcn=KendallWithTiesOpt k=0 gold=wmt-appraise refs={'refB'} close_refs=set() use_outliers=False primary=True pval=0.05 block_size=1000 early_min=0.02 early_max=0.5 replace_nans_with_zeros=False perm_test=pairs corr_fcn_args={'sample_rate':1.0,'variant':'acc23'}
+COMET-22                  1  0.5452651  . > > > > > > > > > > > > > > > > >
+MS-COMET-22               2  0.5399539  . . > > > > > > > > > > > > > > > >
+COMETKiwi[noref]          3  0.5342185  . . . > > > > > > > > > > > > > > >
+COMET-20                  4  0.5316367  . . . . > > > > > > > > > > > > > >
+metricx_xxl_MQM_2020      5  0.5313047  . . . . . > > > > > > > > > > > > >
+COMET-QE[noref]           6  0.5266759  . . . . . . > > > > > > > > > > > >
+REMEDY-9b                 7  0.5230244  . . . . . . . > > > > > > > > > > >
+MS-COMET-QE-22[noref]     8  0.5173260  . . . . . . . . > > > > > > > > > >
+UniTE                     9  0.5086399  . . . . . . . . . > > > > > > > > >
+BLEURT-20                10  0.5009313  . . . . . . . . . . > > > > > > > >
+BERTScore                11  0.4969295  . . . . . . . . . . . > > > > > > >
+UniTE-src[noref]         12  0.4911019  . . . . . . . . . . . . > > > > > >
+YiSi-1                   13  0.4852006  . . . . . . . . . . . . . > > > > >
+HWTSC-Teacher-Sim[noref] 14  0.4805348  . . . . . . . . . . . . . . > > > >
+chrF                     15  0.4718857  . . . . . . . . . . . . . . . > > >
+f200spBLEU               16  0.4665007  . . . . . . . . . . . . . . . . > >
+BLEU                     17  0.4482803  . . . . . . . . . . . . . . . . . >
+REUSE[noref]             18  0.3987460  . . . . . . . . . . . . . . . . . . 

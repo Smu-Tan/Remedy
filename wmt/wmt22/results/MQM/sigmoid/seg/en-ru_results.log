@@ -1,0 +1,22 @@
+test_set=wmt22 lang=en-ru domain=None level=seg human=False avg_by=item corr_fcn=KendallWithTiesOpt k=0 gold=mqm refs={'refA'} close_refs=set() use_outliers=False primary=True pval=0.05 block_size=1000 early_min=0.02 early_max=0.5 replace_nans_with_zeros=False perm_test=pairs corr_fcn_args={'sample_rate':1.0,'variant':'acc23'}
+metricx_xxl_MQM_2020      1  0.6060619  . > > > > > > > > > > > > > > > > > > > >
+REMEDY-9b-sigmoid         2  0.6019989  . . > > > > > > > > > > > > > > > > > > >
+COMET-22                  3  0.5773094  . . . > > > > > > > > > > > > > > > > > >
+UniTE                     4  0.5766286  . . . . > > > > > > > > > > > > > > > > >
+COMETKiwi[noref]          5  0.5648959  . . . . . > > > > > > > > > > > > > > > >
+UniTE-src[noref]          6  0.5539381  . . . . . . > > > > > > > > > > > > > > >
+MS-COMET-22               7  0.5468405  . . . . . . . > > > > > > > > > > > > > >
+BLEURT-20                 8  0.5404454  . . . . . . . . > > > > > > > > > > > > >
+COMET-20                  9  0.5382292  . . . . . . . . . > > > > > > > > > > > >
+COMET-QE[noref]          10  0.5340793  . . . . . . . . . . > > > > > > > > > > >
+MS-COMET-QE-22[noref]    11  0.5278146  . . . . . . . . . . . > > > > > > > > > >
+MATESE                   12  0.5201811  . . . . . . . . . . . . > > > > > > > > >
+MATESE-QE[noref]         13  0.4991707  . . . . . . . . . . . . . > > > > > > > >
+YiSi-1                   14  0.4940576  . . . . . . . . . . . . . . > > > > > > >
+HWTSC-Teacher-Sim[noref] 15  0.4808401  . . . . . . . . . . . . . . . > > > > > >
+MEE4                     16  0.4734818  . . . . . . . . . . . . . . . . > > > > >
+BERTScore                17  0.4734456  . . . . . . . . . . . . . . . . . > > > >
+f200spBLEU               18  0.4695129  . . . . . . . . . . . . . . . . . . > > >
+chrF                     19  0.4662901  . . . . . . . . . . . . . . . . . . . > >
+BLEU                     20  0.4532030  . . . . . . . . . . . . . . . . . . . . >
+REUSE[noref]             21  0.4464965  . . . . . . . . . . . . . . . . . . . . . 
