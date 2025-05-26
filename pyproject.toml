@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "remedy-mt-eval"
+version = "0.1.0"
+description = "High-quality Machine Translation Evaluation Tool"
+authors = ["Shaomu Tan"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Smu-Tan/Remedy"
+repository = "https://github.com/Smu-Tan/Remedy"
+documentation = "https://github.com/Smu-Tan/Remedy"
+keywords = [
+    "Machine Translation", 
+    "Evaluation",
+    "MT",
+    "ReMedy"
+]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Environment :: Console',
+    'Intended Audience :: Science/Research',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+]
+packages = [
+    {include = "remedy"},
+]
+include = [
+    "LICENSE",
+    "pyproject.toml",
+    "README.md"
+]
+
+[tool.poetry.scripts]
+remedy-score = 'remedy.cli:main'
+
+[tool.poetry.dependencies]
+python = "^3.12"
+transformers = ">=4.51.1"
+vllm = ">=0.8.5"
+torch = ">=2.6.0"
+matplotlib = ">=3.10.0"
+hf-transfer = ">=0.1.8"
+datasets = ">=3.1.0"
+trl = ">=0.12.0"
+scikit-learn = ">=1.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "setuptools>=42", "wheel"]
+build-backend = "poetry.core.masonry.api"
+
+# Support for pip install -e .
+[tool.setuptools]
+packages = ["remedy"] 

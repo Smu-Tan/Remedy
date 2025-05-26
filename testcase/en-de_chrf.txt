@@ -1,0 +1,12 @@
+{
+ "name": "chrF2++",
+ "score": 56.9,
+ "signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.4.3",
+ "nrefs": "1",
+ "case": "mixed",
+ "eff": "yes",
+ "nc": "6",
+ "nw": "2",
+ "space": "no",
+ "version": "2.4.3"
+}
