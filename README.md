@@ -1,24 +1,11 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/dcc72523-c91c-4712-9478-28850e1151c6" alt="ReMedy Logo" width="440"/>
 </p>
-
 <h1 align="center">🚀 ReMedy: Machine Translation Evaluation via Reward Modeling</h1>
-
 <p align="center"><b>Learning High-Quality Machine Translation Evaluation from Human Preferences with Reward Modeling</b></p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2504.13630">
-    <img src="https://img.shields.io/badge/arXiv-2405.12345-b31b1b" alt="arXiv" />
-  </a>
-  <a href="https://pypi.org/project/remedy-mt-eval/">
-    <img src="https://img.shields.io/pypi/v/remedy-mt-eval" alt="PyPI version" />
-  </a>
-  <a href="https://github.com/Smu-Tan/Remedy/stargazers">
-    <img src="https://img.shields.io/github/stars/Smu-Tan/Remedy" alt="GitHub Stars" />
-  </a>
-  <a href="./LICENSE">
-    <img src="https://img.shields.io/github/license/Smu-Tan/Remedy" alt="License" />
-  </a>
+<a href="https://arxiv.org/abs/2504.13630" style="text-decoration: none; border: none;"><img src="https://img.shields.io/badge/arXiv-2405.12345-b31b1b" alt="arXiv" style="border: none;" /></a>  <a href="https://pypi.org/project/remedy-mt-eval/" style="text-decoration: none; border: none;"><img src="https://img.shields.io/pypi/v/remedy-mt-eval" alt="PyPI version" style="border: none;" /></a>  <a href="https://github.com/Smu-Tan/Remedy/stargazers" style="text-decoration: none; border: none;"><img src="https://img.shields.io/github/stars/Smu-Tan/Remedy" alt="GitHub Stars" style="border: none;" /></a>  <a href="./LICENSE" style="text-decoration: none; border: none;"><img src="https://img.shields.io/github/license/Smu-Tan/Remedy" alt="License" style="border: none;" /></a> 
 </p>
 
 
