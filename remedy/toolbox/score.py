@@ -161,9 +161,10 @@ def process_data_for_scoring(df_all, QE=False):
 
 def run_inference(llm, dataset):
     """Run inference on prepared dataset."""
-    combined_texts = dataset['input_ids_chosen']
+    #combined_texts = dataset['input_ids_chosen']
     return llm.encode(
-        prompt_token_ids=combined_texts,
+        #prompt_token_ids=combined_texts,
+        dataset['chosen'],
         use_tqdm=True,
         lora_request=None,
         prompt_adapter_request=None
