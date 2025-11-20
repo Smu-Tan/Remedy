@@ -72,8 +72,8 @@ poetry install
 ## ⚙️ Requirements
 
 - `Python` ≥ 3.12  
-- `transformers` ≥ 4.51.1  
-- `vllm` ≥ 0.8.5  
+- `transformers` <4.54.0 
+- `vllm` == 0.9.2  
 - `torch` ≥ 2.6.0  
 - *(See `pyproject.toml` for full dependencies)*
 
@@ -98,14 +98,15 @@ You can replace `ReMedy-9B-22` with other variants like `ReMedy-9B-23`.
 ```bash
 remedy-score \
     --model ShaomuTan/ReMedy-9B-22 \
-    --src_file testcase/en.src \
-    --mt_file testcase/en-de.hyp \
-    --ref_file testcase/de.ref \
+    --src_file ./testcase/en.src \
+    --mt_file ./testcase/en-de.hyp \
+    --ref_file ./testcase/de.ref \
     --src_lang en --tgt_lang de \
     --cache_dir Models \
     --save_dir testcase \
     --num_gpus 4 \
-    --calibrate
+    --calibrate \
+    --gpu_memory_utilization 0.9
 ```
 
 ### 🔹 Reference-Free Mode (Quality Estimation)
@@ -113,14 +114,15 @@ remedy-score \
 ```bash
 remedy-score \
     --model ShaomuTan/ReMedy-9B-22 \
-    --src_file testcase/en.src \
-    --mt_file testcase/en-de.hyp \
+    --src_file ./testcase/en.src \
+    --mt_file ./testcase/en-de.hyp \
     --no_ref \
     --src_lang en --tgt_lang de \
     --cache_dir Models \
-    --save_dir testcase/QE \
+    --save_dir ./testcase \
     --num_gpus 4 \
-    --calibrate
+    --calibrate \
+    --gpu_memory_utilization 0.9
 ```
 
 ---
@@ -215,11 +217,12 @@ Inspired by **SacreBLEU**, ReMedy provides JSON-style results to ensure transpar
 
 | Model         | Size | Base Model   | Ref/QE | Download |
 |---------------|------|--------------|--------|----------|
+| ReMedy-2B     | 2B   | Gemma-2-2B   | Both   | [🤗 HuggingFace](https://huggingface.co/ShaomuTan/ReMedy-2B) |
 | ReMedy-9B-22  | 9B   | Gemma-2-9B   | Both   | [🤗 HuggingFace](https://huggingface.co/ShaomuTan/ReMedy-9B-22) |
 | ReMedy-9B-23  | 9B   | Gemma-2-9B   | Both   | [🤗 HuggingFace](https://huggingface.co/ShaomuTan/ReMedy-9B-23) |
 | ReMedy-9B-24  | 9B   | Gemma-2-9B   | Both   | [🤗 HuggingFace](https://huggingface.co/ShaomuTan/ReMedy-9B-24) |
 
-> More variants coming soon...
+We recommend using ReMedy-2B and ReMedy-9B-22, as we found that ReMedy-9B-24 sometimes tends to produce more compressed score distributions.
 
 ---
 
@@ -264,11 +267,23 @@ sbatch wmt/wmt24.sh
 If you use **ReMedy**, please cite the following paper:
 
 ```bibtex
-@article{tan2024remedy,
-  title={ReMedy: Learning Machine Translation Evaluation from Human Preferences with Reward Modeling},
-  author={Tan, Shaomu and Monz, Christof},
-  journal={arXiv preprint},
-  year={2024}
+@inproceedings{tan-monz-2025-remedy,
+    title = "{R}e{M}edy: Learning Machine Translation Evaluation from Human Preferences with Reward Modeling",
+    author = "Tan, Shaomu  and
+      Monz, Christof",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.217/",
+    doi = "10.18653/v1/2025.emnlp-main.217",
+    pages = "4370--4387",
+    ISBN = "979-8-89176-332-6"
 }
 ```
 
