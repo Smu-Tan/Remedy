@@ -24,7 +24,8 @@ remedy-score \
     --cache_dir Models \
     --save_dir ./testcase \
     --num_gpus 4 \
-    --calibrate
+    --calibrate \
+    --gpu_memory_utilization 0.9
 
 # QE Mode
 remedy-score \
@@ -36,4 +37,5 @@ remedy-score \
     --cache_dir Models \
     --save_dir ./testcase/QE \
     --num_gpus 4 \
-    --calibrate
+    --calibrate \
+    --gpu_memory_utilization 0.9

@@ -53,7 +53,7 @@ def prepare_dataset(test_dataset, tokenizer, max_length, enable_truncate=True):
         )
     return test_dataset
 
-def initialize_model(model_path, max_length, enable_truncate=True, num_gpus=1, num_seqs=256, cache_dir=None):
+def initialize_model(model_path, max_length, enable_truncate=True, num_gpus=1, num_seqs=256, cache_dir=None, gpu_memory_utilization=0.99):
     """Initialize the LLM model for inference."""
     if cache_dir:
         os.environ["HF_HOME"] = cache_dir
@@ -62,7 +62,7 @@ def initialize_model(model_path, max_length, enable_truncate=True, num_gpus=1, n
     model_kwargs = {
         "model": model_path,
         "tensor_parallel_size": num_gpus,
-        "gpu_memory_utilization": 0.99,
+        "gpu_memory_utilization": gpu_memory_utilization,
         "dtype": "bfloat16",
         "task": 'embedding',
         "enforce_eager": False,
@@ -72,7 +72,7 @@ def initialize_model(model_path, max_length, enable_truncate=True, num_gpus=1, n
         "enable_prefix_caching": True,
         "enable_chunked_prefill": False
     }
-        
+
     if enable_truncate:
         model_kwargs["max_model_len"] = max_length
         
@@ -170,9 +170,18 @@ def run_inference(llm, dataset):
         prompt_adapter_request=None
     )
 
+def run_inference(llm, dataset):
+    """Run inference on prepared dataset."""
+    return llm.encode(
+        dataset['chosen'],
+        use_tqdm=True,
+        lora_request=None,
+        prompt_adapter_request=None
+    )
+
 def calculate_scores(embeddings, df, calibrate=False):
     """Calculate scores from model embeddings."""
-    r = np.array([x.outputs.embedding[0] for x in embeddings])
+    r = np.array([x.outputs.data for x in embeddings])
     df['raw:seg'] = r
     df['sigmoid:seg'] = torch.sigmoid(torch.tensor(df['raw:seg'].to_numpy())).numpy()
     

@@ -8,9 +8,9 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        "vllm>=0.8.5",
+        "vllm==0.9.2",
         "torch>=2.6.0",
-        "transformers>=4.51.1",
+        "transformers<4.54.0",
         "datasets>=3.1.0",
         "matplotlib>=3.10.0",
         "hf-transfer>=0.1.8",

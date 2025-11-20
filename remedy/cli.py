@@ -47,9 +47,10 @@ def parse_arguments():
                       help='HuggingFace model ID or path to local model directory')
     parser.add_argument('--cache_dir', type=str,
                       help='Directory where models are cached (for HuggingFace model IDs)')
-    
     parser.add_argument('--save_dir', type=str, required=True,
                       help='Directory to save the results')
+    parser.add_argument('--gpu_memory_utilization', type=float, default=0.99,
+                      help='GPU memory utilization')   
     
     # Optional arguments
     parser.add_argument('--ref_file', type=str,
@@ -138,7 +139,13 @@ def main():
         os.environ["TRANSFORMERS_CACHE"] = args.cache_dir
         print(f"Set cache directory to: {args.cache_dir}")
     
-    llm = initialize_model(args.model, args.max_length, args.enable_truncate, args.num_gpus, args.num_seqs, args.cache_dir)
+    llm = initialize_model(args.model, 
+                           args.max_length, 
+                           args.enable_truncate, 
+                           args.num_gpus, 
+                           args.num_seqs, 
+                           args.cache_dir,
+                           args.gpu_memory_utilization)
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
     
     # 2. Load translation data
